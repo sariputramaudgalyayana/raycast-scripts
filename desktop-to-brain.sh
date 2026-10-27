@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Required parameters:
 # @raycast.schemaVersion 1
@@ -8,6 +8,10 @@
 # Optional parameters:
 # @raycast.icon 📥
 
-export BRAIN_VAULT="/Users/urikamoment/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain"
+# Every location comes from ~/.zshenv, which zsh reads; bash would not.
+[[ -n ${BRAIN_VAULT//[[:space:]]/} ]] || {
+    print -u2 -r -- "BRAIN_VAULT is not set: the vault whose inbox Desktop and Downloads are swept into"
+    exit 2
+}
 
 /opt/homebrew/bin/brain files inbox

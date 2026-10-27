@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # Required parameters:
 # @raycast.schemaVersion 1
@@ -10,6 +10,7 @@
 # @raycast.packageName My Scripts
 # @raycast.description Archive Claude Code and Codex history to the lake, then wipe the local copies. Purges only after every transcript is verified in the archive.
 
+# zsh, so ~/.zshenv supplies the archive locations brain needs.
 set -e
 
 /opt/homebrew/bin/brain claude sync --clear
